@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>You're invited — Birthday Celebration</title>
+  <meta name="theme-color" content="#F7DDE2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!--
+  ============================================================
+   QUICK GUIDE - WHAT TO REPLACE
+
+   Put your files in the SAME folder as index.html, then
+   search this file for the labels below (each one marks the
+   exact spot to edit):
+
+     ADD YOUR MUSIC HERE          ->  music.mp3
+     ADD YOUR VIDEO HERE          ->  video.mp4
+     ADD YOUR FIRST IMAGE HERE    ->  photo1.jpg
+     ADD YOUR SECOND IMAGE HERE   ->  photo2.jpg
+
+   Easiest way: name your files exactly as shown above.
+   Or keep your own file names and edit the src="..." text.
+
+   Also edit:
+     EDIT THE NAME HERE
+     EDIT PARTY DETAILS HERE
+  ============================================================
+-->
+
+<body class="is-locked">
+
+  <!-- Reusable icons (do not edit) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z"/>
+    </symbol>
+  </svg>
+
+  <!-- Confetti layer (do not edit) -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+
+  <!-- ADD YOUR MUSIC HERE -->
+  <!-- Replace "music.mp3" below with the name of your birthday song.
+       Keep the song in the same folder as index.html. (.mp3 works everywhere.) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="m1.mpeg" type="audio/mpeg">
+  </audio>
+
+
+  <!-- ═════════════════════════════════════════════
+       OPENING PAGE
+       ═════════════════════════════════════════════ -->
+  <div class="welcome" id="welcome">
+    <div class="welcome__orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <div class="welcome__inner">
+      
+
+      <h1 class="welcome__title">
+        <span class="welcome__happy">A special day</span>
+        <span class="welcome__birthday">for a special person</span>
+      </h1>
+
+      <!-- EDIT THE NAME HERE (just change the word between the tags) -->
+      <p class="welcome__name"><span id="birthday-name">Nada</span></p>
+
+      <span class="divider welcome__divider" aria-hidden="true"><i></i></span>
+
+      <button class="heart-btn" id="openBtn" type="button" aria-label="Open the invitation">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="heartGrad" x1="0.1" y1="0" x2="0.9" y2="1">
+              <stop offset="0" stop-color="#FBD3DD"/>
+              <stop offset="0.55" stop-color="#EBA9BC"/>
+              <stop offset="1" stop-color="#D38FAB"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#heartGrad)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <ellipse cx="8" cy="7.6" rx="2.1" ry="1.2" fill="#fff" opacity=".55" transform="rotate(-35 8 7.6)"/>
+        </svg>
+      </button>
+      <p class="welcome__hint">Tap the heart to open</p>
+    </div>
+  </div>
+
+
+  <!-- ═════════════════════════════════════════════
+       MAIN INVITATION
+       ═════════════════════════════════════════════ -->
+  <main class="invitation" id="invitation" aria-hidden="true">
+    <header class="hero">
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-inner">
+        <span class="eyebrow">to A7la nada </span>
+        <h2>Happy<br><em style="color:    #B0687F; ">Birthday</em></h2>
+        <p class="hero-copy">A beautiful evening filled with love and memories.<br> The most beautiful girl turned 24</p>
+        <div class="ornament"><span></span><i>✦</i><span></span></div>
+      </div>
+    </header>
+
+     
+
+     <!-- =========================================
+         SECTION 2 — FIRST PHOTO + TEXT
+         ========================================= -->
+    <section class="section memory-section reveal">
+      <div class="memory-layout layout-one">
+        <div class="photo-column">
+          <div class="luxury-frame photo-frame portrait-frame">
+            <!-- ADD YOUR FIRST IMAGE HERE -->
+            <img src="p1.jpeg" alt="Birthday memory">
+          
+          </div>
+        </div>
+
+        <div class="memory-copy">
+          <span class="eyebrow">To my beloved sister</span>
+          <em>another beautiful chapter with you.</em></h3>
+          <div class="small-line"></div>
+          <p>
+            
+          </p>
+          <p>
+            Happy birthday to the sweetest and kindest sister.
+             I wish you a life full of success.having you in my life makes everything so much better, and you always
+              bring joy and happiness to everyone around you. I’m truly so grateful to God for choosing you to be my sister, because 
+              you’re honestly so much more than just an ordinary sister. You’ll always be the 
+            greatest sister in my eyes and the closest person to my heart. You’re such a blessing in my life. I love you so much. ❤️
+          </p>
+          <span class="signature">With love, always ♡</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 3 — SECOND PHOTO + TEXT
+         ========================================= -->
+    <section class="section memory-section reveal">
+  <div class="memory-layout layout-two">
+
+    <div class="memory-copy">
+      <h3>I'm So lucky to have you</h3>
+    </div>
+
+    <div class="photo-column">
+      <div class="luxury-frame photo-frame second-frame">
+        <img src="p2.jpeg" alt="Birthday celebration memory">
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="section video-section reveal">
+      <div class="section-heading">
+        
+        <div>
+         
+          <h3>A Moment to Remember</h3>
+        </div>
+      </div>
+
+      <div class="luxury-frame video-frame">
+        <div class="frame-corner top-left"></div>
+        <div class="frame-corner top-right"></div>
+        <div class="frame-corner bottom-left"></div>
+        <div class="frame-corner bottom-right"></div>
+
+        <!-- ADD YOUR VIDEO HERE -->
+        <video id="birthdayVideo" autoplay muted playsinline loop preload="metadata">
+          <source src="v1.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+
+        <div class="frame-caption">I always love you</div>
+      </div>
+    </section>
+
+    <!-- =========================================
+     SECTION 3.5 — PHOTO GALLERY
+     ========================================= -->
+<section class="gallery-section" data-reveal>
+
+  <div class="gallery-heading">
+    <span class="eyebrow">Little moments</span>
+    <h3>More memories</h3>
+    <div class="gallery-line"></div>
+  </div>
+
+  <div class="memory-gallery">
+
+    <div class="gallery-photo gallery-photo--large">
+      <img src="p3.jpeg" alt="Birthday memory">
+    </div>
+
+    <div class="gallery-photo">
+      <img src="p6.jpeg" alt="Birthday memory">
+    </div>
+
+    <div class="gallery-photo">
+      <img src="p4.jpeg" alt="Birthday memory">
+    </div>
+
+   
+
+  </div>
+
+</section>
+<!-- ───────── EXTRA — MAKE-A-WISH CANDLE ───────── -->
+    <section class="wish" aria-label="Make a wish">
+      <h2 class="section-title" data-reveal>Make a wish</h2>
+      <p class="wish__hint" id="wishHint" data-reveal>Tap the candle to blow it out.</p>
+
+      <button class="cake-btn" id="cakeBtn" type="button" aria-label="Blow out the candle" data-reveal>
+        <svg class="cake" viewBox="0 -10 200 240" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FFE9B8" stop-opacity=".95"/>
+              <stop offset="1" stop-color="#FFE9B8" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#F6B98A"/>
+              <stop offset=".6" stop-color="#FFD98E"/>
+              <stop offset="1" stop-color="#FFF3C9"/>
+            </linearGradient>
+            <linearGradient id="tierLow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FBE3E8"/>
+              <stop offset="1" stop-color="#EFC6D3"/>
+            </linearGradient>
+            <linearGradient id="tierTop" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#EEE6F9"/>
+              <stop offset="1" stop-color="#D3C7EE"/>
+            </linearGradient>
+          </defs>
+
+          <!-- plate -->
+          <ellipse cx="100" cy="214" rx="94" ry="11" fill="#EBDDE3"/>
+          <ellipse cx="100" cy="210" rx="94" ry="10" fill="#FFFFFF"/>
+
+          <!-- bottom tier -->
+          <rect x="22" y="146" width="156" height="62" rx="16" fill="url(#tierLow)"/>
+          <rect x="22" y="146" width="156" height="16" rx="8" fill="#FFF8F6"/>
+          <g fill="#FFF8F6">
+            <rect x="34" y="154" width="12" height="20" rx="6"/>
+            <rect x="64" y="154" width="12" height="14" rx="6"/>
+            <rect x="94" y="154" width="12" height="22" rx="6"/>
+            <rect x="124" y="154" width="12" height="15" rx="6"/>
+            <rect x="154" y="154" width="12" height="19" rx="6"/>
+          </g>
+          <g fill="#C4A07A" opacity=".75">
+            <circle cx="42" cy="194" r="2.6"/><circle cx="71" cy="196" r="2.6"/>
+            <circle cx="100" cy="194" r="2.6"/><circle cx="129" cy="196" r="2.6"/>
+            <circle cx="158" cy="194" r="2.6"/>
+          </g>
+
+          <!-- top tier -->
+          <rect x="46" y="100" width="108" height="50" rx="14" fill="url(#tierTop)"/>
+          <rect x="46" y="100" width="108" height="14" rx="7" fill="#FFF8F6"/>
+          <g fill="#FFF8F6">
+            <rect x="58" y="108" width="11" height="17" rx="5.5"/>
+            <rect x="94" y="108" width="11" height="12" rx="5.5"/>
+            <rect x="130" y="108" width="11" height="18" rx="5.5"/>
+          </g>
+
+          <!-- candle -->
+          <rect x="95" y="58" width="10" height="44" rx="3" fill="#FFFFFF"/>
+          <path d="M95 70l10-5M95 82l10-5M95 94l10-5" stroke="#CBBFE8" stroke-width="3" fill="none"/>
+          <path d="M100 58v-7" stroke="#6E5C73" stroke-width="1.6" stroke-linecap="round"/>
+
+          <!-- flame -->
+          <circle class="glow" cx="100" cy="38" r="32" fill="url(#glowGrad)"/>
+          <g class="flame">
+            <path d="M100 22C108 32 111 41 100 51C89 41 92 32 100 22Z" fill="url(#flameGrad)"/>
+            <path d="M100 36C103.5 41 104 46 100 50C96 46 96.5 41 100 36Z" fill="#FFF6DA" opacity=".9"/>
+          </g>
+
+          <!-- smoke (shown after blowing out) -->
+          <path class="smoke" pathLength="60" d="M100 48C94 38 106 30 99 20C95 12 103 8 100 -2" fill="none" stroke="#C9BDD0" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <p class="wish__result" id="wishResult" role="status" aria-live="polite"></p>
+      <button class="link-btn" id="relightBtn" type="button" hidden>Light it again</button>
+    </section>
+
+
+    <!-- ───────── SECTION 4 — BIRTHDAY MESSAGE FORM ───────── -->
+    <section class="wishes" aria-label="Leave a birthday message">
+      <div class="letter" id="letter" data-reveal>
+        <svg class="letter__heart" aria-hidden="true"><use href="#i-heart"/></svg>
+        <h2 class="section-title">Leave a wish for <span class="js-name"></span></h2>
+       
+
+        <form class="letter__form" id="wishForm">
+          <div class="field">
+            <label for="guestName">Your name</label>
+            <input id="guestName" name="name" type="text" autocomplete="name" maxlength="60" required>
+          </div>
+
+          <div class="field">
+            <label for="guestMessage">Your message</label>
+            <textarea id="guestMessage" name="message" rows="5" maxlength="500" required></textarea>
+          </div>
+
+          <p class="letter__error" id="formError" role="alert" hidden>Your message didn't send. Check your connection and try again.</p>
+
+          <button class="btn" id="sendBtn" type="submit">
+            <svg aria-hidden="true"><use href="#i-heart"/></svg>
+            <span>Send my wishes</span>
+          </button>
+        </form>
+
+        <div class="letter__thanks" id="thanks" hidden>
+          <svg class="letter__heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          <h3>Thank you</h3>
+          <p>Your wishes are on their way.</p>
+          <button class="link-btn" id="againBtn" type="button">Write another wish</button>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+  </main>
+
+  <!-- Music on/off button -->
+  <button class="sound-btn" id="soundBtn" type="button" aria-label="Turn music off" aria-pressed="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10v4h3.5L12 17.5v-11L7.5 10H4z"/>
+      <g class="sound-on"><path d="M15.5 9a4 4 0 010 6"/><path d="M18 6.5a7.5 7.5 0 010 11"/></g>
+      <g class="sound-off"><path d="M16 9.5l5 5M21 9.5l-5 5"/></g>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
