@@ -701,60 +701,7 @@ h1, h2, h3, p { margin: 0; }
   font-size: 1.25rem;
   font-style: italic;
 }
-/* ==========================================================
-   MOBILE — FIRST PHOTO THEN MESSAGE
-   ========================================================== */
 
-@media screen and (max-width: 700px) {
-
-  /* Section 2 فقط */
-  .first-memory .memory-layout {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 3rem !important;
-  }
-
-  /* الصورة أولاً */
-  .first-memory .photo-column {
-    order: 1 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  /* الكلام ثانياً */
-  .first-memory .memory-copy {
-    order: 2 !important;
-    width: 100% !important;
-    max-width: 520px !important;
-    text-align: center !important;
-  }
-
-  /* الصورة نفسها في منتصف الشاشة */
-  .first-memory .photo-frame {
-    width: min(86vw, 420px) !important;
-    margin: 0 auto !important;
-  }
-
-  /* الخط الصغير تحت العنوان يكون في المنتصف */
-  .first-memory .small-line {
-    margin: 1.4rem auto !important;
-  }
-
-  /* المسافات بين فقرات الرسالة */
-  .first-memory .memory-copy p {
-    margin-bottom: 1.2rem;
-  }
-
-  /* التوقيع */
-  .first-memory .signature {
-    display: block;
-    margin-top: 1.2rem;
-  }
-
-}
 
 
 /* — buttons — */
@@ -1092,6 +1039,21 @@ body:not(.is-locked) .sound-btn { opacity: 1; pointer-events: auto; transform: n
 
 
 /* ---------- Desktop ---------- */
+@media (max-width: 700px) {
+  .memory-layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .memory-layout .photo-column {
+    order: 1 !important;
+  }
+
+  .memory-layout .memory-copy {
+    order: 2 !important;
+    text-align: center !important;
+  }
+}
 @media (min-width: 860px) {
   .hero__lead,
   .welcome__lead { font-size: 1rem; }
@@ -1119,4 +1081,58 @@ body:not(.is-locked) .sound-btn { opacity: 1; pointer-events: auto; transform: n
     scroll-behavior: auto !important;
   }
   .js [data-reveal] { opacity: 1; transform: none; }
+}
+/* ==========================================================
+   MOBILE — FIRST PHOTO THEN MESSAGE
+   ========================================================== */
+
+@media screen and (max-width: 700px) {
+
+  /* Section 2 فقط */
+  .first-memory .memory-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3rem !important;
+  }
+
+  /* الصورة أولاً */
+  .first-memory .photo-column {
+    order: 1 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* الكلام ثانياً */
+  .first-memory .memory-copy {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    text-align: center !important;
+  }
+
+  /* الصورة نفسها في منتصف الشاشة */
+  .first-memory .photo-frame {
+    width: min(86vw, 420px) !important;
+    margin: 0 auto !important;
+  }
+
+  /* الخط الصغير تحت العنوان يكون في المنتصف */
+  .first-memory .small-line {
+    margin: 1.4rem auto !important;
+  }
+
+  /* المسافات بين فقرات الرسالة */
+  .first-memory .memory-copy p {
+    margin-bottom: 1.2rem;
+  }
+
+  /* التوقيع */
+  .first-memory .signature {
+    display: block;
+    margin-top: 1.2rem;
+  }
+
 }
