@@ -599,12 +599,12 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .memory-layout {
-  display: grid;
-  grid-template-columns: 1.02fr .98fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(3rem, 8vw, 8rem);
+  gap: 3rem;
+  width: 100%;
 }
-
 .layout-two {
   display: flex;
   flex-direction: column;
