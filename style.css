@@ -627,12 +627,13 @@ h1, h2, h3, p { margin: 0; }
   width: min(100%, 480px);
 }
 .photo-column {
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
 .photo-frame {
-  width: min(100%, 480px);
+  width: min(88vw, 500px);
   padding: 14px;
   background: linear-gradient(145deg, #e9ddd8, #f9f1eb);
 }
